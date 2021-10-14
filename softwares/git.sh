@@ -1,5 +1,5 @@
 start(){
-    curVersion=$(git --version)
+    curVersion=$(git2 --version)
     if [ $? -eq 0 ]
     then
         echo "git has been installed (${curVersion})"
@@ -11,7 +11,8 @@ start(){
         
         if [ $? -eq 0 ]
         then
-            echo "git installed successfully"
+            curVersion=$(git --version)
+            echo "git(${curVersion}) installed successfully"
         else
             echo "git install failed,please check the logs/git.${curDate}.log"
         fi

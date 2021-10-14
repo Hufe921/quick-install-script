@@ -11,9 +11,9 @@ start(){
         nginxPackage="nginx-$1.tar.gz"
         
         yum -y install gcc >> ${curLogDir} &&
-        yum install -y pcre pcre-devel >> ${curLogDir} &&
-        yum install -y zlib zlib-devel >> ${curLogDir} &&
-        yum install -y openssl openssl-devel >> ${curLogDir} &&
+        yum -y install pcre pcre-devel >> ${curLogDir} &&
+        yum -y install zlib zlib-devel >> ${curLogDir} &&
+        yum -y install openssl openssl-devel >> ${curLogDir} &&
         wget "http://nginx.org/download/${nginxPackage}" >> ${curLogDir} &&
         tar -zxvf ${nginxPackage} &&
         rm -rf ${nginxPackage} &&
