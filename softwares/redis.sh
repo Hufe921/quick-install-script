@@ -1,8 +1,8 @@
 start(){
-    curVersion=$(redis-cli -v)
+    curVersion=$(redis-server -v)
     if [ $? -eq 0 ]
     then
-        echo "redis has been installed"
+        echo "redis has been installed (${curVersion})"
     else
         echo "redis Installing..."
         curDate=$(date +%Y%m%d%H%M%S)
