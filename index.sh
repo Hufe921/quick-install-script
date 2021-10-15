@@ -8,11 +8,11 @@ fi
 read -p "Enter the software name you want to install:" name
 
 case $name in
-    "git"|"mysql"|"java")
+    "git"|"mysql"|"java"|"docker")
         source "./softwares/${name}.sh"
         start
     ;;
-    "redis"|"node"|"nginx"|"mongo"|"docker")
+    "redis"|"node"|"nginx"|"mongo")
         read -p "Enter ${name} version:" version
         if [ -z ${version} ]
         then
