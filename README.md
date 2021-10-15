@@ -9,7 +9,8 @@
 ### SUPPORT LIST
 
 - `git`
-- `redis`
 - `node`
+- `java`
+- `redis`
 - `nginx`
 - `mysql`

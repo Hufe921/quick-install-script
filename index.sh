@@ -8,7 +8,7 @@ fi
 read -p "Enter the software name you want to install:" name
 
 case $name in
-    "git"|"mysql")
+    "git"|"mysql"|"java")
         source "./softwares/${name}.sh"
         start
     ;;
