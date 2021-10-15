@@ -12,7 +12,7 @@ case $name in
         source "./softwares/${name}.sh"
         start
     ;;
-    "redis"|"node"|"nginx")
+    "redis"|"node"|"nginx"|"mongo")
         read -p "Enter ${name} version:" version
         if [ -z ${version} ]
         then
