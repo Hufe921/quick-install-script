@@ -13,8 +13,9 @@ start(){
         wget "https://nodejs.org/dist/v$1/${nodePackage}" >> ${curLogDir} &&
         tar -zxvf ${nodePackage} &&
         rm -rf ${nodePackage} &&
-        ln -s "${curDir}/${nodePackage%%.tar.gz}/bin/node /usr/local/bin/node" &&
-        ln -s "${curDir}/${nodePackage%%.tar.gz}/bin/npm /usr/local/bin/npm"
+        ln -s ${curDir}/${nodePackage%%.tar.gz}/bin/node /usr/local/bin/node &&
+        ln -s ${curDir}/${nodePackage%%.tar.gz}/bin/npm /usr/local/bin/npm &&
+        ln -s ${curDir}/${nodePackage%%.tar.gz}/bin/npx /usr/local/bin/npx
         
         if [ $? -eq 0 ]
         then

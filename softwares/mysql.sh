@@ -17,9 +17,13 @@ start(){
         
         wget "https://repo.mysql.com/${rpmName}" >> ${curLogDir} &&
         yum -y localinstall ${rpmName} >> ${curLogDir} &&
+        rm -rf ${rpmName} &&
+        yum module disable mysql &&
+        echo "installing mysql-community-server..." &&
         yum -y install mysql-community-server >> ${curLogDir} &&
         systemctl start mysqld >> ${curLogDir} &&
-        systemctl enable mysqld
+        systemctl enable mysqld &&
+        systemctl daemon-reload
         
         if [ $? -eq 0 ]
         then

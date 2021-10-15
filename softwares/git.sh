@@ -1,5 +1,5 @@
 start(){
-    curVersion=$(git2 --version)
+    curVersion=$(git --version)
     if [ $? -eq 0 ]
     then
         echo "git has been installed (${curVersion})"

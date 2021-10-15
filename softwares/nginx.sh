@@ -18,10 +18,12 @@ start(){
         tar -zxvf ${nginxPackage} &&
         rm -rf ${nginxPackage} &&
         cd "./nginx-$1" &&
-        ./configure >> ${curLogDir} &&
-        make >> ${curLogDir} &&
-        make install >> ${curLogDir} &&
-        ./sbin/nginx
+        pwd &&
+        ./configure &&
+        make &&
+        make install &&
+        cd /usr/local/nginx/sbin/ &&
+        ./nginx
         
         if [ $? -eq 0 ]
         then

@@ -4,7 +4,7 @@
 
 ### HOW TO USE
 
-`./index.sh`
+`chmod +x index.sh && ./index.sh`
 
 ### SUPPORT LIST
 
