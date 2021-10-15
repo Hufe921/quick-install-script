@@ -6,8 +6,9 @@ start(){
     else
         echo "git Installing..."
         curDate=$(date +%Y%m%d%H%M%S)
-
-        yum -y install git > "./logs/git.${curDate}.log"
+        curLogDir="./logs/git.${curDate}.log"
+        
+        yum -y install git
         
         if [ $? -eq 0 ]
         then

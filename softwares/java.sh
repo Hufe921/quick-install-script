@@ -6,8 +6,9 @@ start(){
     else
         echo "java Installing..."
         curDate=$(date +%Y%m%d%H%M%S)
+        curLogDir="./logs/java.${curDate}.log"
         
-        yum -y install java > "./logs/java.${curDate}.log"
+        yum -y install java
         
         if [ $? -eq 0 ]
         then

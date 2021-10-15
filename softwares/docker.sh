@@ -11,7 +11,7 @@ start(){
         yum -y install yum-utils &&
         yum-config-manager --add-repo "https://download.docker.com/linux/centos/docker-ce.repo" &&
         yum -y install docker-ce-$1 docker-ce-cli-$1 containerd.io &&
-        systemctl start docker >> ${curLogDir}
+        systemctl start docker
         
         if [ $? -eq 0 ]
         then

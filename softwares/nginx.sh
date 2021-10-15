@@ -7,18 +7,18 @@ start(){
         echo "nginx Installing..."
         curDir=$(pwd)
         curDate=$(date +%Y%m%d%H%M%S)
-        curLogDir="./logs/nginx.${curDate}.log"
+        curLogDir="../logs/nginx.${curDate}.log"
         nginxPackage="nginx-$1.tar.gz"
         
-        yum -y install gcc >> ${curLogDir} &&
-        yum -y install pcre pcre-devel >> ${curLogDir} &&
-        yum -y install zlib zlib-devel >> ${curLogDir} &&
-        yum -y install openssl openssl-devel >> ${curLogDir} &&
-        wget "http://nginx.org/download/${nginxPackage}" >> ${curLogDir} &&
+        yum -y install gcc &&
+        yum -y install pcre pcre-devel &&
+        yum -y install zlib zlib-devel &&
+        yum -y install openssl openssl-devel &&
+        wget "http://nginx.org/download/${nginxPackage}" &&
         tar -zxvf ${nginxPackage} &&
         rm -rf ${nginxPackage} &&
         cd "./nginx-$1" &&
-        pwd &&
+        pwd >> ${curLogDir} &&
         ./configure &&
         make &&
         make install &&

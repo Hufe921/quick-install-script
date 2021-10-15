@@ -10,7 +10,7 @@ start(){
         curLogDir="./logs/node.${curDate}.log"
         nodePackage="node-v$1-linux-x64.tar.gz"
         
-        wget "https://nodejs.org/dist/v$1/${nodePackage}" >> ${curLogDir} &&
+        wget "https://nodejs.org/dist/v$1/${nodePackage}" &&
         tar -zxvf ${nodePackage} &&
         rm -rf ${nodePackage} &&
         ln -s ${curDir}/${nodePackage%%.tar.gz}/bin/node /usr/local/bin/node &&

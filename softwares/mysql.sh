@@ -15,13 +15,12 @@ start(){
             rpmName="mysql80-community-release-el7-3.noarch.rpm"
         fi
         
-        wget "https://repo.mysql.com/${rpmName}" >> ${curLogDir} &&
-        yum -y localinstall ${rpmName} >> ${curLogDir} &&
+        wget "https://repo.mysql.com/${rpmName}" &&
+        yum -y localinstall ${rpmName} &&
         rm -rf ${rpmName} &&
         yum module disable mysql &&
-        echo "installing mysql-community-server..." &&
-        yum -y install mysql-community-server >> ${curLogDir} &&
-        systemctl start mysqld >> ${curLogDir} &&
+        yum -y install mysql-community-server &&
+        systemctl start mysqld &&
         systemctl enable mysqld &&
         systemctl daemon-reload
         

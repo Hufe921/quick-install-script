@@ -9,8 +9,8 @@ start(){
         curLogDir="./logs/redis.${curDate}.log"
         redisPackage="redis-$1.tar.gz"
         
-        yum -y install gcc-c++ >> ${curLogDir} &&
-        wget "https://download.redis.io/releases/${redisPackage}" >> ${curLogDir} &&
+        yum -y install gcc-c++ &&
+        wget "https://download.redis.io/releases/${redisPackage}" &&
         tar -zxvf ${redisPackage} &&
         rm -rf ${redisPackage} &&
         cd "redis-$1" &&
