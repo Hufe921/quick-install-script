@@ -4,7 +4,7 @@ start(){
     then
         echo "mysql has been installed (${curVersion})"
     else
-        echo "mysql Installing..."
+        echo "mysql installing..."
         curDir=$(pwd)
         curDate=$(date +%Y%m%d%H%M%S)
         curLogDir="./logs/mysql.${curDate}.log"
@@ -14,16 +14,16 @@ start(){
         then
             rpmName="mysql80-community-release-el7-3.noarch.rpm"
         fi
-        
+
         wget "https://repo.mysql.com/${rpmName}" &&
         yum -y localinstall ${rpmName} &&
         rm -rf ${rpmName} &&
-        yum module disable mysql &&
+        yum -y module disable mysql &&
         yum -y install mysql-community-server &&
-        systemctl start mysqld &&
+        systemctl start mysqld 2>> ${curLogDir} &&
         systemctl enable mysqld &&
         systemctl daemon-reload
-        
+
         if [ $? -eq 0 ]
         then
             curVersion=$(mysql -V)

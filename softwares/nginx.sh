@@ -4,12 +4,12 @@ start(){
     then
         echo "nginx has been installed (${curVersion})"
     else
-        echo "nginx Installing..."
+        echo "nginx installing..."
         curDir=$(pwd)
         curDate=$(date +%Y%m%d%H%M%S)
         curLogDir="../logs/nginx.${curDate}.log"
         nginxPackage="nginx-$1.tar.gz"
-        
+
         yum -y install gcc &&
         yum -y install pcre pcre-devel &&
         yum -y install zlib zlib-devel &&
@@ -18,13 +18,13 @@ start(){
         tar -zxvf ${nginxPackage} &&
         rm -rf ${nginxPackage} &&
         cd "./nginx-$1" &&
-        pwd >> ${curLogDir} &&
+        pwd &&
         ./configure &&
         make &&
         make install &&
         cd /usr/local/nginx/sbin/ &&
-        ./nginx
-        
+        ./nginx 2>> ${curLogDir}
+
         if [ $? -eq 0 ]
         then
             echo "nginx installed successfully"

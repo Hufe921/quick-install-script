@@ -4,12 +4,12 @@ start(){
     then
         echo "git has been installed (${curVersion})"
     else
-        echo "git Installing..."
+        echo "git installing..."
         curDate=$(date +%Y%m%d%H%M%S)
         curLogDir="./logs/git.${curDate}.log"
-        
-        yum -y install git
-        
+
+        yum -y install git  2>> ${curLogDir}
+
         if [ $? -eq 0 ]
         then
             curVersion=$(git --version)

@@ -4,15 +4,15 @@ start(){
     then
         echo "docker has been installed (${curVersion})"
     else
-        echo "docker Installing..."
+        echo "docker installing..."
         curDate=$(date +%Y%m%d%H%M%S)
         curLogDir="./logs/mongo.${curDate}.log"
-        
+
         yum -y install yum-utils &&
         yum-config-manager --add-repo "https://download.docker.com/linux/centos/docker-ce.repo" &&
         yum -y install docker-ce docker-ce-cli containerd.io &&
-        systemctl start docker
-        
+        systemctl start docker 2>> ${curLogDir}
+
         if [ $? -eq 0 ]
         then
             curVersion=$(docker -v)
