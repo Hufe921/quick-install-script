@@ -14,5 +14,6 @@
 - `redis`
 - `nginx`
 - `mysql`
+- `neo4j`
 - `mongo`
 - `docker`
