@@ -17,3 +17,4 @@
 - `neo4j`
 - `mongo`
 - `docker`
+- `jenkins`
